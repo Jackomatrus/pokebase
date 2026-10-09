@@ -145,11 +145,15 @@ def set_cache(new_path=None):
     return CACHE_DIR, API_CACHE, SPRITE_CACHE
 
 
-def safe_remove_cache():
+def delete_cache():
     """Depending on the database backend that shelve is using, different database files will be created. Shelve does not offer a way to detect which one it has created, so this function catches all of them"""
+    global CACHE_DIR, API_CACHE, SPRITE_CACHE
     for f in glob.glob(f"{CACHE_DIR}\\{API_CACHE_FILE_NAME}*"):
         if os.path.exists(f):
             os.remove(f)
+    CACHE_DIR = None
+    API_CACHE = None
+    SPRITE_CACHE = None
 
 
 CACHE_DIR, API_CACHE, SPRITE_CACHE = set_cache()
