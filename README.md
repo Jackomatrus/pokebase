@@ -81,5 +81,5 @@ Do this :)
 To delete the existing cache, don't delete files directly, as `shelve`'s file structure is platform-dependant. Indead, do
 ```python console
 >>> from pokebase import cache
->>> cache.delete_cache() 
+>>> cache.empty_cache() 
 ```
