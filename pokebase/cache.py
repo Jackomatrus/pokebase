@@ -146,8 +146,9 @@ def set_cache(new_path=None):
 
 
 def empty_cache():
-    """Depending on the database backend that shelve is using, different database files will be created. Shelve does not offer a way to detect which one it has created, so this function catches all of them"""
-    for f in glob.glob(f"{CACHE_DIR}\\{API_CACHE_FILE_NAME}*"):
+    """Depending on the database backend that shelve is using, different database files will be created.
+    Shelve does not offer a way to detect which one it has created, so this function catches all of them"""
+    for f in glob.glob(f"{API_CACHE}*"):
         if os.path.exists(f):
             os.remove(f)
 
